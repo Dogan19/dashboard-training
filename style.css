@@ -30,7 +30,19 @@ body{
 
 .day-card{
     padding: 0.5rem;
-    margin: 1.5rem;
     background-color: var(--card-bg);
     border-radius: 0.5rem;
+    transition: transform 0.3s;
+}
+
+.day-card:hover{
+    transform: translateY(-5px)
+}
+
+.week-container{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+    margin: 1.5rem 0;
 }
