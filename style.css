@@ -1,3 +1,15 @@
+@font-face {
+    font-family: 'Inter';
+    src: url('fonts/Inter/static/Inter_18pt-Regular.ttf') format('truetype');
+    font-weight: 400;
+}
+
+@font-face {
+    font-family: 'Inter';
+    src: url('fonts/Inter/static/Inter_18pt-Bold.ttf') format('truetype');
+    font-weight: 700;
+}
+
 :root{
     --bg-color: #0f172a;
     --text-color: #f8fafc;
@@ -21,7 +33,7 @@ body{
     padding: 2rem;
     background-color: var(--bg-color);
     color: var(--text-color);
-    font-family: sans-serif;
+    font-family: 'Inter', sans-serif;
 }
 
 .stat-card, footer{
@@ -45,4 +57,15 @@ body{
     flex-wrap: wrap;
     gap: 1.5rem;
     margin: 1.5rem 0;
+}
+
+h3{
+    font-weight: 700;
+    font-size: 1.5rem;
+}
+
+p{
+    font-weight: 400;
+    font-size: 1rem;
+    color: rgba(255, 255, 255, 0.7);
 }
