@@ -69,3 +69,9 @@ p{
     font-size: 1rem;
     color: rgba(255, 255, 255, 0.7);
 }
+
+.week-container{
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 2rem;
+}
