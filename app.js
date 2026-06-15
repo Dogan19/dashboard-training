@@ -1,5 +1,4 @@
-const firstCard = document.querySelector(".day-card");
-const secondCard = document.querySelector(".thursday");
+const allCards = document.querySelectorAll(".day-card");
 
 function changeColor(e){
 
@@ -7,5 +6,6 @@ function changeColor(e){
 
 }
 
-firstCard.addEventListener("click", changeColor);
-secondCard.addEventListener("click", changeColor);
+allCards.forEach(card =>{
+    card.addEventListener("click", changeColor);
+});
