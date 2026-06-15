@@ -1,11 +1,11 @@
 const allCards = document.querySelectorAll(".day-card");
 
-function changeColor(e){
+function handleDayClick(e){
     e.currentTarget.classList.toggle("selected");
 
-    console.log(e.currentTarget.querySelector("h3").textContent);
+    document.querySelector("h2").textContent = e.currentTarget.querySelector("h3").textContent;
 }
 
 allCards.forEach(card =>{
-    card.addEventListener("click", changeColor);
+    card.addEventListener("click", handleDayClick);
 });
