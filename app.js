@@ -1,9 +1,7 @@
 const allCards = document.querySelectorAll(".day-card");
 
 function changeColor(e){
-
-    e.currentTarget.style.backgroundColor = "green";
-
+    e.currentTarget.classList.toggle("selected");
 }
 
 allCards.forEach(card =>{
