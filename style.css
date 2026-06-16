@@ -93,3 +93,10 @@ p{
 .selected{
     background-color: green !important;
 }
+
+#workout-content{
+    padding-top: 1.5rem; 
+    font-weight: 700;
+    color:  #80bfff;
+    font-size: x-large;
+}
