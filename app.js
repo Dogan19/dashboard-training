@@ -13,6 +13,10 @@ const workouts = {
 function handleDayClick(e){
     let clickedDay;
 
+    document.querySelectorAll(".day-card").forEach(card =>{
+        card.classList.remove("selected");
+    });
+
     e.currentTarget.classList.toggle("selected");
 
     clickedDay = e.currentTarget.querySelector("h3").textContent;
