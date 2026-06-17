@@ -36,18 +36,18 @@ body{
     font-family: 'Inter', sans-serif;
 }
 
-.stat-card, footer{
+footer{
     padding: 0.5rem;
 }
 
-.day-card, .stat-card{
+.day-card, .fasting-card, .weight-card{
     padding: 0.5rem;
     background-color: var(--card-bg);
     border-radius: 0.5rem;
     transition: transform 0.3s;
 }
 
-.day-card:hover, .stat-card:hover{
+.day-card:hover, .fasting-card:hover, .weight-card:hover{
     transform: translateY(-5px)
 }
 
