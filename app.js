@@ -9,6 +9,7 @@ const workouts = {
     "Saturday": "Street Full Body/Core",
     "Sunday": "Complete rest"
 };
+const weightValue = document.querySelector(".weight-card");
 
 function handleDayClick(e){
     let clickedDay;
@@ -23,6 +24,16 @@ function handleDayClick(e){
     workoutContent.textContent = workouts[clickedDay];
 }
 
+function handleStatsClick(){
+    let newWeight = prompt("Entrez votre poids:");
+
+    if (newWeight) {
+        document.querySelector("#weight-value").textContent = newWeight;
+    }
+}
+
 allCards.forEach(card =>{
     card.addEventListener("click", handleDayClick);
 });
+
+weightValue.addEventListener("click", handleStatsClick);
