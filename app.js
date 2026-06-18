@@ -32,8 +32,20 @@ function handleStatsClick(){
     }
 }
 
+function handleFastingClick(){
+    let newFasting = prompt("Modifier l'objectif de jeûne (en heures) :");
+
+    if (newFasting) {
+        document.querySelector("#fasting-value").textContent = newFasting;
+    }
+}
+
 allCards.forEach(card =>{
     card.addEventListener("click", handleDayClick);
 });
 
 weightValue.addEventListener("click", handleStatsClick);
+
+const fastingValue = document.querySelector(".fasting-card");
+
+fastingValue.addEventListener("click", handleFastingClick);
