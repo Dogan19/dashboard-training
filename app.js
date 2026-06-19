@@ -25,10 +25,12 @@ function handleDayClick(e){
 }
 
 function handleStatsClick(){
-    let newWeight = prompt("Entrez votre poids:");
+    let newWeight = parseFloat(prompt("Entrez votre poids:"));
 
-    if (newWeight) {
+    if (!isNaN(newWeight) && newWeight<100 && newWeight>30) {
         document.querySelector("#weight-value").textContent = newWeight;
+    } else {
+        alert("Erreur");
     }
 }
 
