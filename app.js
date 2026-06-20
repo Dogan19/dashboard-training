@@ -35,10 +35,12 @@ function handleStatsClick(){
 }
 
 function handleFastingClick(){
-    let newFasting = prompt("Modifier l'objectif de jeûne (en heures) :");
-
-    if (newFasting) {
-        document.querySelector("#fasting-value").textContent = newFasting;
+    let newFasting = parseInt(prompt("Entrez combien de temps vous jeûnez (en heures):"));
+    let reste = 24 - newFasting;
+    if (!isNaN(newFasting) && newFasting>0 && newFasting<24) {
+        document.querySelector("#fasting-value").textContent = newFasting + "/" + reste;
+    } else {
+        alert("Erreur");
     }
 }
 
