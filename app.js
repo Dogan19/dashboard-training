@@ -25,22 +25,31 @@ function handleDayClick(e){
 }
 
 function handleStatsClick(){
-    let newWeight = parseFloat(prompt("Entrez votre poids:"));
+    let newWeight = prompt("Entrez votre poids:");
+
+    if (newWeight === null) return;
+
+    newWeight = parseFloat(newWeight);
 
     if (!isNaN(newWeight) && newWeight<100 && newWeight>30) {
         document.querySelector("#weight-value").textContent = newWeight;
     } else {
-        alert("Erreur");
+        alert("Erreur : Veuillez entrer un nombre valide entre 30 et 100 (non inclus)");
     }
 }
 
 function handleFastingClick(){
-    let newFasting = parseInt(prompt("Entrez combien de temps vous jeûnez (en heures):"));
+    let newFasting = prompt("Entrez combien de temps vous jeûnez (en heures):");
+
+    if (newFasting === null) return;
+
+    newFasting = parseInt(newFasting);
+
     let reste = 24 - newFasting;
     if (!isNaN(newFasting) && newFasting>0 && newFasting<24) {
         document.querySelector("#fasting-value").textContent = newFasting + "/" + reste;
     } else {
-        alert("Erreur");
+        alert("Erreur veuillez entrer un nombre valide entre 1 et 23");
     }
 }
 
