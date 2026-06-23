@@ -38,7 +38,7 @@ function handleStatsClick(){
     if (!isNaN(newWeight) && newWeight<WEIGHT_MAX && newWeight>WEIGHT_MIN) {
         document.querySelector("#weight-value").textContent = newWeight;
     } else {
-        alert("Erreur : Veuillez entrer un nombre valide entre " + WEIGHT_MIN + " et " + WEIGHT_MAX + " (non inclus)");
+        alert(`Erreur : Veuillez entrer un nombre valide entre ${WEIGHT_MIN} et ${WEIGHT_MAX} (non inclus)`);
     }
 }
 
@@ -53,7 +53,7 @@ function handleFastingClick(){
     if (!isNaN(newFasting) && newFasting>FASTING_MIN && newFasting<FASTING_MAX) {
         document.querySelector("#fasting-value").textContent = newFasting + "/" + reste;
     } else {
-        alert("Erreur veuillez entrer un nombre valide entre " + FASTING_MIN + " et " + FASTING_MAX);
+        alert(`Erreur veuillez entrer un nombre valide entre ${FASTING_MIN} et ${FASTING_MAX}`);
     }
 }
 
