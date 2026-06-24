@@ -18,7 +18,7 @@ const FASTING_MAX = 24;
 function handleDayClick(e){
     let clickedDay;
 
-    document.querySelectorAll(".day-card").forEach(card =>{
+    allCards.forEach(card =>{
         card.classList.remove("selected");
     });
 
