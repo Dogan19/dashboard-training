@@ -51,7 +51,7 @@ function handleFastingClick(){
 
     let reste = FASTING_MAX - newFasting;
     if (!isNaN(newFasting) && newFasting>FASTING_MIN && newFasting<FASTING_MAX) {
-        document.querySelector("#fasting-value").textContent = newFasting + "/" + reste;
+        document.querySelector("#fasting-value").textContent = `${newFasting}/${reste}`;
     } else {
         alert(`Erreur veuillez entrer un nombre valide entre ${FASTING_MIN} et ${FASTING_MAX}`);
     }
