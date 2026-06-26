@@ -1,5 +1,10 @@
+// DOM Elements 
 const allCards = document.querySelectorAll(".day-card");
 const workoutContent = document.querySelector("#workout-content");
+const weightValue = document.querySelector(".weight-card");
+const fastingValue = document.querySelector(".fasting-card");
+
+// Constants
 const workouts = {
     "Monday": "Chest/Biceps",
     "Tuesday": "Street(Push/Full Shoulders)",
@@ -9,12 +14,12 @@ const workouts = {
     "Saturday": "Street Full Body/Core",
     "Sunday": "Complete rest"
 };
-const weightValue = document.querySelector(".weight-card");
 const WEIGHT_MIN = 30;
 const WEIGHT_MAX = 100;
 const FASTING_MIN = 0;
 const FASTING_MAX = 24;
 
+// Functions
 function handleDayClick(e){
     let clickedDay;
 
@@ -57,12 +62,11 @@ function handleFastingClick(){
     }
 }
 
+// Event Listeners
 allCards.forEach(card =>{
     card.addEventListener("click", handleDayClick);
 });
 
 weightValue.addEventListener("click", handleStatsClick);
-
-const fastingValue = document.querySelector(".fasting-card");
 
 fastingValue.addEventListener("click", handleFastingClick);
