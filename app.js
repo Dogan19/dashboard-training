@@ -23,6 +23,12 @@ const FASTING_MAX = 24;
 function handleDayClick(e){
     let clickedDay;
 
+    if (e.currentTarget.classList.contains("selected")) {
+        e.currentTarget.classList.remove("selected");
+        workoutContent.textContent = "Sélectionnez un jour pour voir votre séance";
+        return;
+    } 
+
     allCards.forEach(card =>{
         card.classList.remove("selected");
     });
