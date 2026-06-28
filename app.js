@@ -3,6 +3,8 @@ const allCards = document.querySelectorAll(".day-card");
 const workoutContent = document.querySelector("#workout-content");
 const weightValue = document.querySelector(".weight-card");
 const fastingValue = document.querySelector(".fasting-card");
+const creatineValue = document.querySelector(".creatine-card");
+const creatineDate = document.querySelector("#creatine-date");
 
 // Constants
 const workouts = {
@@ -76,3 +78,7 @@ allCards.forEach(card =>{
 weightValue.addEventListener("click", handleStatsClick);
 
 fastingValue.addEventListener("click", handleFastingClick);
+
+creatineValue.addEventListener("click", () =>{
+    creatineDate.textContent = new Date().toLocaleDateString('fr-FR');
+});

@@ -40,14 +40,14 @@ footer{
     padding: 0.5rem;
 }
 
-.day-card, .fasting-card, .weight-card{
+.day-card, .fasting-card, .weight-card, .creatine-card{
     padding: 0.5rem;
     background-color: var(--card-bg);
     border-radius: 0.5rem;
     transition: transform 0.3s;
 }
 
-.day-card:hover, .fasting-card:hover, .weight-card:hover{
+.day-card:hover, .fasting-card:hover, .weight-card:hover, .creatine-card:hover{
     transform: translateY(-5px)
 }
 
@@ -78,7 +78,7 @@ p{
 
 .stats-panel{
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(3, 1fr);
     gap: 2rem;
     margin: 1.5rem auto;
     width: fit-content;
