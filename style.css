@@ -40,14 +40,14 @@ footer{
     padding: 0.5rem;
 }
 
-.day-card, .fasting-card, .weight-card, .creatine-card{
+.day-card, .stat-card{
     padding: 0.5rem;
     background-color: var(--card-bg);
     border-radius: 0.5rem;
     transition: transform 0.3s;
 }
 
-.day-card:hover, .fasting-card:hover, .weight-card:hover, .creatine-card:hover{
+.day-card:hover, .stat-card:hover{
     transform: translateY(-5px)
 }
 
