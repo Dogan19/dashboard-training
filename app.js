@@ -44,7 +44,7 @@ function handleDayClick(e){
 function handleStatsClick(){
     let newWeight = prompt("Entrez votre poids:");
 
-    if (newWeight === null) return;
+    if (newWeight === null || newWeight.trim() === "") return;
 
     newWeight = parseFloat(newWeight);
 
