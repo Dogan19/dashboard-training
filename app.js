@@ -26,6 +26,10 @@ let weightHistory = JSON.parse(localStorage.getItem("historiquePoids")) || [];
     if (weightHistory.length > 0){
         document.querySelector("#weight-value").textContent = weightHistory[weightHistory.length - 1]
     }
+let savedCreatine = localStorage.getItem("historiqueCreatine");
+    if (savedCreatine){
+        creatineDate.textContent = savedCreatine;
+    }
 
 // Functions
 function handleDayClick(e){
@@ -89,4 +93,5 @@ fastingValue.addEventListener("click", handleFastingClick);
 
 creatineValue.addEventListener("click", () =>{
     creatineDate.textContent = new Date().toLocaleDateString('fr-FR');
+    localStorage.setItem("historiqueCreatine", new Date().toLocaleDateString('fr-FR'));
 });
