@@ -24,11 +24,17 @@ const FASTING_MAX = 24;
 //LocalStorage
 let weightHistory = JSON.parse(localStorage.getItem("historiquePoids")) || [];
     if (weightHistory.length > 0){
-        document.querySelector("#weight-value").textContent = weightHistory[weightHistory.length - 1]
+        document.querySelector("#weight-value").textContent = weightHistory[weightHistory.length - 1];
     }
 let savedCreatine = localStorage.getItem("historiqueCreatine");
     if (savedCreatine){
         creatineDate.textContent = savedCreatine;
+    }
+let fastingHistory = JSON.parse(localStorage.getItem("historiqueJeune")) || [];
+    if (fastingHistory.length > 0){
+        let lastFasting = fastingHistory[fastingHistory.length - 1];
+        let fastingLeft = FASTING_MAX - lastFasting;
+        document.querySelector("#fasting-value").textContent = `${lastFasting}/${fastingLeft}`;
     }
 
 // Functions
@@ -77,6 +83,8 @@ function handleFastingClick(){
     let reste = FASTING_MAX - newFasting;
     if (!isNaN(newFasting) && newFasting>FASTING_MIN && newFasting<FASTING_MAX) {
         document.querySelector("#fasting-value").textContent = `${newFasting}/${reste}`;
+        fastingHistory.push(newFasting);
+        localStorage.setItem("historiqueJeune", JSON.stringify(fastingHistory));
     } else {
         alert(`Erreur veuillez entrer un nombre valide entre ${FASTING_MIN} et ${FASTING_MAX}`);
     }
