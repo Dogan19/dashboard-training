@@ -3,7 +3,6 @@ const allCards = document.querySelectorAll(".day-card");
 const workoutContent = document.querySelector("#workout-content");
 const weightValue = document.querySelector(".weight-card");
 const fastingValue = document.querySelector(".fasting-card");
-const creatineValue = document.querySelector(".creatine-card");
 const creatineDate = document.querySelector("#creatine-date");
 
 
@@ -30,10 +29,13 @@ if (weightHistory.length > 0){
     document.querySelector("#weight-value").textContent = weightHistory[weightHistory.length - 1];
 }
 
-let savedCreatine = localStorage.getItem("historiqueCreatine");
-if (savedCreatine){
-    creatineDate.textContent = savedCreatine;
-}
+let todayDate = new Date();
+let currentDate = creatineDate.dataset.date;
+currentDate = new Date(currentDate);
+let timeElapsed = todayDate - currentDate;
+timeElapsed /= (1000 * 60 * 60 * 24);
+timeElapsed = Math.floor(timeElapsed);
+creatineDate.textContent += ` (${timeElapsed} jours)`;
 
 let fastingHistory = JSON.parse(localStorage.getItem("historiqueJeune")) || [];
 if (fastingHistory.length > 0){
@@ -109,8 +111,3 @@ allCards.forEach(card =>{
 weightValue.addEventListener("click", handleStatsClick);
 
 fastingValue.addEventListener("click", handleFastingClick);
-
-creatineValue.addEventListener("click", () =>{
-    creatineDate.textContent = new Date().toLocaleDateString('fr-FR');
-    localStorage.setItem("historiqueCreatine", new Date().toLocaleDateString('fr-FR'));
-});
