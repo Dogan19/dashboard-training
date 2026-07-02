@@ -106,8 +106,7 @@ function handleFastingClick(){
 
 async function getQuote(){
     let quote = document.querySelector("#quote");
-    let character = document.querySelector("#character");
-    let anime = document.querySelector("#anime");
+    let characterAnime = document.querySelector("#character-anime");
     
     try {
 
@@ -115,12 +114,10 @@ async function getQuote(){
         let responseAPI = await animeAPI.json();
 
         quote.textContent = responseAPI.data.content;
-        character.textContent = responseAPI.data.character.name;
-        anime.textContent = responseAPI.data.anime.name;
+        characterAnime.textContent = ` ${responseAPI.data.character.name} (${responseAPI.data.anime.name})`;
     } catch (error){
         quote.textContent = "Even Further Beyond!";
-        character.textContent = "Goku";
-        anime.textContent = "Dragon Ball Z";
+        characterAnime.textContent = "Goku (Dragon Ball Z)";
     }
 }
 
