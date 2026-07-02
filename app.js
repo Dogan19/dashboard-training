@@ -24,6 +24,8 @@ const DAYS_OF_WEEK = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "F
 
 
 // Initialisation & LocalStorage
+getQuote();
+
 let weightHistory = JSON.parse(localStorage.getItem("historiquePoids")) || [];
 if (weightHistory.length > 0){
     document.querySelector("#weight-value").textContent = weightHistory[weightHistory.length - 1];
@@ -99,6 +101,26 @@ function handleFastingClick(){
         localStorage.setItem("historiqueJeune", JSON.stringify(fastingHistory));
     } else {
         alert(`Erreur veuillez entrer un nombre valide entre ${FASTING_MIN} et ${FASTING_MAX}`);
+    }
+}
+
+async function getQuote(){
+    let quote = document.querySelector("#quote");
+    let character = document.querySelector("#character");
+    let anime = document.querySelector("#anime");
+    
+    try {
+
+        let animeAPI = await fetch("https://api.animechan.io/v1/quotes/random");
+        let responseAPI = await animeAPI.json();
+
+        quote.textContent = responseAPI.data.content;
+        character.textContent = responseAPI.data.character.name;
+        anime.textContent = responseAPI.data.anime.name;
+    } catch (error){
+        quote.textContent = "Even Further Beyond!";
+        character.textContent = "Goku";
+        anime.textContent = "Dragon Ball Z";
     }
 }
 
