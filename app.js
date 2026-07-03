@@ -107,15 +107,25 @@ function handleFastingClick(){
 async function getQuote(){
     let quote = document.querySelector("#quote");
     let characterAnime = document.querySelector("#character-anime");
+    let currentTime = Date.now();
+    let tempsEcouler = JSON.parse(localStorage.getItem("tempsEcouler"));
+
+    if (tempsEcouler && (currentTime - tempsEcouler < 3600000)){
+        let tempsRestantMs = 3600000 - (currentTime - tempsEcouler);
+        let minutesRestantes = Math.ceil(tempsRestantMs / 60000);
+        quote.textContent = "Even Further Beyond!";
+        characterAnime.textContent = `Goku (Dragon Ball Z) (API bloquée encore ${minutesRestantes} min)`;      
+        return;
+    }
     
     try {
-
         let animeAPI = await fetch("https://api.animechan.io/v1/quotes/random");
         let responseAPI = await animeAPI.json();
 
         quote.textContent = responseAPI.data.content;
         characterAnime.textContent = ` ${responseAPI.data.character.name} (${responseAPI.data.anime.name})`;
     } catch (error){
+        localStorage.setItem("tempsEcouler", JSON.stringify(Date.now()));
         quote.textContent = "Even Further Beyond!";
         characterAnime.textContent = "Goku (Dragon Ball Z)";
     }
