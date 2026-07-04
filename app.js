@@ -21,6 +21,9 @@ const WEIGHT_MAX = 100;
 const FASTING_MIN = 0;
 const FASTING_MAX = 24;
 const DAYS_OF_WEEK = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+const days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+const todayIndex = new Date().getDay(); 
+const todayName = days[todayIndex].toLowerCase(); 
 
 
 // Initialisation & LocalStorage
@@ -131,6 +134,11 @@ async function getQuote(){
     }
 }
 
+const todayBlock = document.querySelector(`#${todayName}`); 
+
+if (todayBlock) {
+    todayBlock.classList.add("current-day");
+}
 
 // Event Listeners
 allCards.forEach(card =>{
