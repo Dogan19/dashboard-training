@@ -25,6 +25,12 @@ const days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", 
 const todayIndex = new Date().getDay(); 
 const todayName = days[todayIndex].toLowerCase(); 
 
+const todayBlock = document.querySelector(`#${todayName}`); 
+
+if (todayBlock) {
+    todayBlock.classList.add("current-day");
+}
+
 
 // Initialisation & LocalStorage
 getQuote();
@@ -134,11 +140,6 @@ async function getQuote(){
     }
 }
 
-const todayBlock = document.querySelector(`#${todayName}`); 
-
-if (todayBlock) {
-    todayBlock.classList.add("current-day");
-}
 
 // Event Listeners
 allCards.forEach(card =>{
