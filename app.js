@@ -149,3 +149,11 @@ allCards.forEach(card =>{
 weightValue.addEventListener("click", handleStatsClick);
 
 fastingValue.addEventListener("click", handleFastingClick);
+
+
+// Keyboard Shortcut : "d" to open current day
+window.addEventListener("keydown", (e) => {
+    if (e.key.toLowerCase() === "d" && todayBlock) {
+        todayBlock.click();
+    }
+});
