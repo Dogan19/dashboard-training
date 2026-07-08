@@ -59,7 +59,8 @@ let currentDayName = DAYS_OF_WEEK[new Date().getDay()];
 let todaysWorkout = workouts[currentDayName];
 workoutContent.textContent = todaysWorkout;
 
-document.title = `Dashboard | ${todaysWorkout || "Repos"}`;
+const workoutEmoji = todaysWorkout === "Complete Rest" ? "💤" : "🦾";
+document.title = `${workoutEmoji} Dashboard | ${todaysWorkout || "Repos"}`;
 
 
 // Functions
