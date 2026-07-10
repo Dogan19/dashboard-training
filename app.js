@@ -62,6 +62,8 @@ workoutContent.textContent = todaysWorkout;
 const workoutEmoji = todaysWorkout === "Complete Rest" ? "💤" : "🦾";
 document.title = `${workoutEmoji} Dashboard | ${todaysWorkout || "Repos"}`;
 
+const easterEgg = [];
+
 
 // Functions
 function handleDayClick(e){
@@ -143,6 +145,19 @@ async function getQuote(){
     }
 }
 
+function handleEasterEgg(e){
+    easterEgg.push(e.key.toLowerCase());
+
+    if (easterEgg.length > 5) {
+        easterEgg.shift();
+    }
+
+    if (easterEgg.join("") === "squat") {
+        alert("Squat lourd ! 🦾🏋️"); 
+        easterEgg.length = 0; 
+    }
+}
+
 
 // Event Listeners
 allCards.forEach(card =>{
@@ -153,6 +168,7 @@ weightValue.addEventListener("click", handleStatsClick);
 
 fastingValue.addEventListener("click", handleFastingClick);
 
+window.addEventListener("keydown", handleEasterEgg);
 
 // Keyboard Shortcut : "d" to open current day
 window.addEventListener("keydown", (e) => {
