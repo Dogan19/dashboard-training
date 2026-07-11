@@ -153,7 +153,10 @@ function handleEasterEgg(e){
     }
 
     if (easterEgg.join("") === "squat") {
-        alert("Squat lourd ! 🦾🏋️"); 
+        document.body.style.backgroundColor = "#4ade80"; 
+        setTimeout(() => {
+            document.body.style.backgroundColor = ""; 
+        }, 1000);
         easterEgg.length = 0; 
     }
 }
