@@ -4,7 +4,7 @@ const workoutContent = document.querySelector("#workout-content");
 const weightValue = document.querySelector(".weight-card");
 const fastingValue = document.querySelector(".fasting-card");
 const creatineDate = document.querySelector("#creatine-date");
-
+const favBtn = document.querySelector(".fav-btn");
 
 // Constants
 const workouts = {
@@ -119,8 +119,17 @@ function handleFastingClick(){
 }
 
 async function getQuote(){
+
     let quote = document.querySelector("#quote");
     let characterAnime = document.querySelector("#character-anime");
+    
+    const savedQuote = localStorage.getItem("favoriteQuote");
+    
+    if (savedQuote) {
+        quote.textContent = JSON.parse(savedQuote);
+        return;
+    }
+
     let currentTime = Date.now();
     let tempsEcouler = JSON.parse(localStorage.getItem("tempsEcouler"));
 
@@ -178,4 +187,8 @@ window.addEventListener("keydown", (e) => {
     if (e.key.toLowerCase() === "d" && todayBlock) {
         todayBlock.click();
     }
+});
+
+favBtn.addEventListener("click", () => {
+    localStorage.setItem("favoriteQuote", JSON.stringify(quote.textContent));
 });
