@@ -126,7 +126,9 @@ async function getQuote(){
     const savedQuote = localStorage.getItem("favoriteQuote");
     
     if (savedQuote) {
-        quote.textContent = JSON.parse(savedQuote);
+        const data = JSON.parse(savedQuote);
+        quote.textContent = data.text;
+        characterAnime.textContent = data.characterAnime
         return;
     }
 
@@ -190,5 +192,8 @@ window.addEventListener("keydown", (e) => {
 });
 
 favBtn.addEventListener("click", () => {
-    localStorage.setItem("favoriteQuote", JSON.stringify(quote.textContent));
+    localStorage.setItem("favoriteQuote", JSON.stringify({
+     text: quote.textContent, 
+     characterAnime: characterAnime.textContent   
+    }));
 });
