@@ -124,8 +124,9 @@ p{
     background: none;
     border: none;
     color: var(--text-color);
+    font-size: 1.5rem;
 }
 
 #fav-btn:hover {
-    transform: scale(1.5);
+    transform: scale(1.2);
 }
